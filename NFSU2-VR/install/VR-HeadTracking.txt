@@ -1,0 +1,77 @@
+NFSU2 in VR (Pico 4 + Virtual Desktop + SteamVR) - 09.10.2026
+==============================================================
+
+What it is: scripts\NFSU2HeadTrack.asi (settings in scripts\NFSU2HeadTrack.ini, log in NFSU2HeadTrack.log).
+- Your headset's rotation and position move the in-game camera (6DoF), seated in the driver's seat.
+- Real 3D: the game draws the left eye on one frame and the right eye on the next.
+  HUD and menus are complete in both eyes. Each eye gets half the game's frame rate, so aim for 120+ fps.
+- The picture is anchored where your head was when it was drawn, so turning your head feels like looking around.
+- The mouse cursor is hidden while driving.
+- ReShade SuperDepth3D is switched off (not needed any more).
+
+How to start
+1. Put on the Pico 4, connect Virtual Desktop, and start SteamVR from Virtual Desktop's games list.
+2. Start SPEED2.EXE on the PC. (The mod never starts SteamVR itself; it connects once SteamVR runs.)
+3. In a race the camera sits in the driver's seat automatically, whichever in-game camera view is selected.
+4. Sit straight, look ahead and press F8 to recenter.
+
+Keys (while driving)
+  F7                         head tracking on/off
+  F8                         recenter
+  F9                         save seat + screen adjustments
+  F10                        SteamVR screen on/off
+  Ctrl + Left/Right          seat left/right
+  Ctrl + Up/Down             seat forward/back
+  Ctrl + PageUp/PageDown     seat up/down
+  Ctrl+Shift + Up/Down       screen bigger/smaller (fine-tunes the world scale)
+  Ctrl+Shift + Left/Right    screen closer/farther
+  Ctrl+Shift + PageUp/Down   screen higher/lower
+
+HUD
+- Dashboard, left to right: rev counter (with gear), speedometer, the game's minimap; the position / lap /
+  lap time bar sits just above them. All of it is fixed in the car, in real 3D.
+- The minimap is lifted out of the screen picture. If a slightly lighter square shows where it used to be,
+  lower MapPatchShade in [GAUGES] (e.g. 0.65); if darker, raise it.
+  Position, size, max rpm, redline and max speed: [GAUGES] in the ini.
+  Their look comes from PNG files in the gauge_mod folder (see gauge_mod\README.txt to make your own).
+- Position / lap / lap time bar at the top center ([HUD] in the ini).
+  With [GAUGES] Enabled=0 a flat speed + gear panel is shown instead.
+- The minimap is the game's own, moved toward the center. Position and size of the compact panels: [HUD] in the ini.
+- To get the game's original speedometer and race list back: copy
+  _VR_Backup_2026-10-09\scripts\NFSUnderground2.WidescreenFix.dat into scripts and set [HUD] Enabled=0.
+
+Stereo modes ([STEREO] Mode in the ini)
+- Mode=1 (default): every game frame is drawn once and split into a left and right view using the game's
+  depth buffer, so both eyes update at the full game rate (~90-100 fps). Each eye gets half the picture
+  width, and edges of near objects can smear a little.
+- Mode=0: the eyes take turns (left on one frame, right on the next): exact geometry and full width,
+  but each eye only gets half the game's frame rate.
+
+DXVK and render resolution (since 10.10.2026)
+- d3d9.dll + dxvk.conf in the game folder are DXVK 3.1.1 (Direct3D 9 runs on Vulkan).
+- With DXVK the finished game frames go straight to SteamVR on the graphics card (no desktop capture),
+  so the render resolution no longer depends on your monitor. It is set in
+  scripts\NFSUnderground2.WidescreenFix.ini: ResX = 3840, ResY = 2160 (each eye gets half the width).
+  Higher (e.g. 5120 x 2880) = sharper but more GPU load; 0 / 0 = desktop resolution.
+- ReShade was updated to 6.8 (the old 4.8 crashes on DXVK); same Bayview preset.
+- Keep the "framepacer" tool closed (or remove speed2.exe from its list): it caps the game at 60 fps
+  and crashed it on DXVK.
+- Undo DXVK: delete d3d9.dll and dxvk.conf (the mod then goes back to desktop capture), set ResX/ResY to 0.
+  Old ReShade and the previous mod build: _VR_Backup_2026-10-10.
+
+Smoothness
+- The game runs as a real SteamVR app: each eye's picture is handed to SteamVR together with the head
+  pose it was drawn with, and SteamVR keeps it steady between game frames (VRFrames=1 in the ini).
+  VRFrames=0 goes back to the older overlay mode.
+- Motion blur is off (NFSU2HDReflections.ini). Also switch off Motion Blur in the game's display options if it is on.
+- SingleCoreAffinity is off in the Widescreen Fix ini for more fps. If the game ever becomes unstable, set it back to 1.
+
+Tuning
+- If the world seems to slide when you turn your head, use Ctrl+Shift+Up/Down until it stays still, then F9.
+- Want an even wider view? Raise GameFOV in the ini ([STEREO]); the screen grows with it.
+- 3D too strong or too weak: DepthScale in [STEREO].
+- Back to the old side-by-side shader: AlternateEyes=0, SideBySide3D=1, and re-enable SuperDepth3D in ReShade.
+- Without a headset the mod only applies the seat position (you can still drive from the cockpit on the monitor).
+
+Undo: delete scripts\NFSU2HeadTrack.asi and scripts\NFSU2HeadTrack.ini.
+Earlier versions and the old ReShade preset are in _VR_Backup_2026-10-09. Source code: _VR_Mod_Source.

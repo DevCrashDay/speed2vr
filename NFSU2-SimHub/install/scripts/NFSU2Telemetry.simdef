@@ -1,0 +1,210 @@
+{
+  "TelemetryBehaviour": {
+    "GameFamily": 1,
+    "DefaultMaxSpeed": 330.0,
+    "HasRumbleStripsContactSurface": false,
+    "AllowGimbleLockSanitizer": false
+  },
+  "TelemetryDefinition": {
+    "LayoutMajorVersion": 1,
+    "LayoutMinorVersion": 1,
+    "ProtocolVersion": 1,
+    "Fields": [
+      {
+        "FieldType": "SpeedKmh",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "EngineRpm",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "EngineMaxRpm",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "Gear",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "RacePosition",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "CompletedLaps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "TotalLaps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "CurrentLapTime",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LastLapTimeSeconds",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "BestLapTimeSeconds",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "YawDegrees",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "PitchDegrees",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "RollDegrees",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "YawRateDegreesPerSecond",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "PitchRateDegreesPerSecond",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "RollRateDegreesPerSecond",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LocalSurgeMs2",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LocalSwayMs2",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LocalHeaveMs2",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LocalVelocityForwardMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LocalVelocityLateralMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "LocalVelocityUpMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "VehiclePositionNorth",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "VehiclePositionEast",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "VehiclePositionUp",
+        "TypeName": "StandardField"
+      },
+      {
+        "Name": "OpponentCount",
+        "DisplayName": "Opponent count",
+        "Comment": null,
+        "BinaryType": 5,
+        "TypeName": "CustomTelemetryField"
+      },
+      {
+        "FieldType": "Throttle",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "Brake",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "Handbrake",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelSlipFrontLeft",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelSlipFrontRight",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelSlipRearLeft",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelSlipRearRight",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelLockFrontLeft",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelLockFrontRight",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelLockRearLeft",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "WheelLockRearRight",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "SuspensionVelocityFrontLeftMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "SuspensionVelocityFrontRightMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "SuspensionVelocityRearLeftMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "SuspensionVelocityRearRightMps",
+        "TypeName": "StandardField"
+      },
+      {
+        "FieldType": "PushToPassActive",
+        "TypeName": "StandardField"
+      },
+      {
+        "Name": "NitroBoost",
+        "DisplayName": "Nitro boost factor (1 = off)",
+        "Comment": null,
+        "BinaryType": 8,
+        "TypeName": "CustomTelemetryField"
+      }
+    ]
+  },
+  "ManagerVersion": 3,
+  "GameSignature": 1598552259,
+  "TelemetrySignature": 317317698,
+  "Name": "Need for Speed Underground 2",
+  "UniqueId": "4e465355-3200-4d0d-9f1e-7e1e00000002",
+  "DefaultUDPPort": 30777,
+  "DetectionProcesses": [
+    {
+      "ProcessName": "speed2",
+      "FileChecks": []
+    }
+  ],
+  "SimStartCommand": null,
+  "SimStartArguments": null,
+  "UseExtractorProcess": false,
+  "ExtractorProcessCommand": null,
+  "IconPath": null
+}
